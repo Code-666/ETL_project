@@ -1,4 +1,7 @@
-with open('raw_data.json', 'r') as f:
+import json
+import pandas as pd
+
+with open('stations/raw/raw_data.json', 'r') as f:
     data = json.load(f)
 
 def transform(data_index):
@@ -29,4 +32,4 @@ for i in range(len(data['timeSeries'])):
     big_df.append(df)
 
 new_df = pd.concat(big_df, ignore_index=True)
-new_df.to_csv('harminized_data.csv')
+new_df.to_csv('stations/harmonized/harmonized_data.csv')

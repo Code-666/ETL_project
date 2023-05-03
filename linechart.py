@@ -1,8 +1,17 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Load the CSV file into a pandas DataFrame
-df = pd.read_csv('test.csv')
+df = pd.read_csv('stations/harmonized/harmonized_data.csv')
 
-print(df)
+df['Date'] = pd.to_datetime(df['Date'])
+
+temps = df['Temperature']
+
+plt.plot(df['Date'], temps)
+
+plt.xlabel('Date')
+plt.ylabel('Temperature (°C)')
+plt.title('Temperature Data')
+
+plt.show()
 
